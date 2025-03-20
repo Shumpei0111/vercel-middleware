@@ -19,7 +19,6 @@ describe("MiddlewareChain", () => {
     const chain = new MiddlewareChain([new TestMiddleware()]);
     const req = new NextRequest("http://localhost:3000/test");
     const response = await chain.handle(req);
-    // console.log("🍏", response);
     expect(response.headers.get("x-test")).toBe("test");
   });
 });

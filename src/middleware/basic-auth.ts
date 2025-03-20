@@ -7,6 +7,7 @@ export class BasicAuth implements MiddlewareRule {
     const authHeader = req.headers.get("authorization") ?? "";
 
     if (!authHeader || !authHeader.startsWith("Basic ")) {
+      console.log("[BasicAuth] Unauthorized");
       return new NextResponse("Unauthorized", {
         status: 401,
         headers: {
